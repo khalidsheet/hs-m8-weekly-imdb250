@@ -10,7 +10,7 @@ export const AddToFavAction = ({ movie }: { movie: IMovie }) => {
   useEffect(() => {
     const likedMovies = storage<unknown, IMovie[]>() as IMovie[];
     const liked =
-      likedMovies.find((likedMovie) => {
+      likedMovies?.find((likedMovie) => {
         return likedMovie.imdb_url === movie.imdb_url;
       }) != null;
     setIsLiked(liked);
